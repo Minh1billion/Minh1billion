@@ -84,21 +84,16 @@ I'm a **third-year Software Engineering student** at Ho Chi Minh City University
 
 <div align="center">
 
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=Minh1billion&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&cache_seconds=1800" />
+<!-- Thay YOUR-VERCEL-APP bằng tên app sau khi deploy: https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own -->
+<img height="160" src="https://github-readme-stats-xi-vert-eomzcenz0g.vercel.app/api?username=Minh1billion&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
 &nbsp;
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Minh1billion&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&cache_seconds=1800" />
+<img height="160" src="https://github-readme-stats-xi-vert-eomzcenz0g.vercel.app/api/top-langs/?username=Minh1billion&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
 
 </div>
 
 <div align="center">
 
 <img src="https://streak-stats.demolab.com/?user=Minh1billion&theme=tokyonight&hide_border=true" />
-
-</div>
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=Minh1billion&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=6" />
 
 </div>
 
