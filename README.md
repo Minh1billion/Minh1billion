@@ -16,7 +16,7 @@ Third-year Software Engineering student at Ho Chi Minh City University of Techno
 
 ### [DALreaDone](https://github.com/Minh1billion/dalreadone) - AI Data Analytics Platform
 
-Upload CSV / Excel / JSON / Parquet → automated statistical profiling + LLM-powered insights + interactive preprocessing pipeline.
+Upload CSV / Excel / JSON / Parquet -> automated statistical profiling + LLM-powered insights + interactive preprocessing pipeline.
 
 - **8-step EDA pipeline** (pure Python): schema profiling, missing values, univariate stats, datetime analysis, Pearson/Cramér's V correlations, distribution analysis, weighted data quality score - runs as background task with live progress polling
 - **LLM review pass** (Groq LLaMA 3.3-70b): one structured JSON per EDA run - domain inference, severity-tagged issues, semantic type detection, column relationships, keep/drop recommendations
@@ -28,15 +28,17 @@ Upload CSV / Excel / JSON / Parquet → automated statistical profiling + LLM-po
 
 ---
 
-### [Npixie](https://github.com/Minh1billion/npixie-master) - RAG Chatbot for a Fantasy Marketplace
+### [Minesweeper Hybrid RL Agent](https://github.com/Minh1billion/minesweeper-hybrid-RL-agent) - 45% Winrate Solver
 
-Lore-aware chatbot routing messages to 5 NPC personas with real asset-pack recommendations from a Supabase DB.
+Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**45% win rate** on a 10×10 board with 15 mines.
 
-- **RAG pipeline**: embed lore documents → store in Qdrant → retrieve top-k chunks → generate via Groq LLaMA - contextually grounded, lore-accurate responses
-- **5 NPC personas** (Nara, Zolt, Lyra, Vexis, Echo) - auto-detected by keyword routing, each defined as a YAML file for easy extensibility
-- Live **asset-pack recommendations** fetched from Supabase (PostgreSQL) based on chat context
+- **Decision hierarchy**: constraint solver -> Q-policy -> random fallback (human-like reasoning)
+- **Frontier-based optimization**: only evaluates boundary cells instead of full grid
+- **Local state (VR window)**: reduces state space while preserving spatial patterns
+- **Confidence-aware Q-learning**: avoids low-certainty actions via Q-margin threshold
+- **Custom environment + training loop** (no Gym) with real-time debugging UI
 
-`FastAPI` `Qdrant` `HuggingFace` `Groq` `Supabase` `Docker`
+`Python` `NumPy` `Pygame`
 
 ---
 
@@ -46,10 +48,22 @@ End-to-end pipeline that crawls, embeds, clusters, and summarises Vietnamese tec
 
 - Crawls **4 sources** (VNExpress, ThanhNien, TuoiTre, ZingNews) via HTML scraping + RSS - **100+ articles per run** into PostgreSQL
 - **Vietnamese SBERT embeddings** (`keepitreal/vietnamese-sbert`) + Qdrant vector store for semantic deduplication and relevance scoring
-- **K-means clustering** with silhouette-score auto-tuning + TF-IDF / semantic keyword extraction → structured weekly JSON report
+- **K-means clustering** with silhouette-score auto-tuning + TF-IDF / semantic keyword extraction -> structured weekly JSON report
 - **React 18 dashboard**: executive summary, trending keywords, topic distribution, daily volume charts, PDF export
 
 `Python` `FastAPI` `React` `Qdrant` `PostgreSQL` `scikit-learn` `Docker`
+
+---
+
+### [Npixie](https://github.com/Minh1billion/npixie-master) - RAG Chatbot for a Fantasy Marketplace
+
+Lore-aware chatbot routing messages to 5 NPC personas with real asset-pack recommendations from a Supabase DB.
+
+- **RAG pipeline**: embed lore documents -> store in Qdrant -> retrieve top-k chunks -> generate via Groq LLaMA - contextually grounded, lore-accurate responses
+- **5 NPC personas** (Nara, Zolt, Lyra, Vexis, Echo) - auto-detected by keyword routing, each defined as a YAML file for easy extensibility
+- Live **asset-pack recommendations** fetched from Supabase (PostgreSQL) based on chat context
+
+`FastAPI` `Qdrant` `HuggingFace` `Groq` `Supabase` `Docker`
 
 ---
 
