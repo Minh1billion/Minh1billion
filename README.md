@@ -28,16 +28,16 @@ Upload CSV / Excel / JSON / Parquet -> automated statistical profiling + LLM-pow
 
 ---
 
-### [Minesweeper Hybrid RL Agent](https://github.com/Minh1billion/minesweeper-hybrid-RL-agent) - 45% Winrate Solver
-
-Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**45% win rate** on a 10×10 board with 15 mines.
-
-- **Decision hierarchy**: constraint solver -> Q-policy -> random fallback (human-like reasoning)
-- **Frontier-based optimization**: only evaluates boundary cells instead of full grid
-- **Local state (VR window)**: reduces state space while preserving spatial patterns
-- **Confidence-aware Q-learning**: avoids low-certainty actions via Q-margin threshold
-- **Custom environment + training loop** (no Gym) with real-time debugging UI
-
+### [Minesweeper Hybrid RL Agent](https://github.com/Minh1billion/minesweeper-hybrid-RL-agent) - 40% Win Rate Solver
+ 
+Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**40% all-time win rate** (~55% rolling) on a 10×10 board with 15 mines after 50,000 training episodes.
+ 
+- **4-layer decision hierarchy**: constraint solver → probability filter → Q-policy → random fallback - each layer only activates when the previous cannot produce a certain decision
+- **Constraint solver** handles ~87% of all moves deterministically: flags cells where hidden neighbor count equals remaining mine count, reveals cells where mine count is fully satisfied
+- **Probability filter** estimates `P(mine | cell)` from surrounding number cells, acting when confidence exceeds 80% (flag) or drops below 20% (reveal) - covers ~7% of decisions
+- **Q-table** encodes local board state as a 5×5 observation window (25-element tuple), learns `reveal` vs `flag` values via Bellman update - intervenes in ~5% of genuinely ambiguous cases
+- **1.83M Q-states** learned over 1.17M training steps; tabular approach made feasible by frontier-only evaluation and local state representation
+- **Custom environment + training loop** (no Gym), real-time pygame debug UI with Q-value inspection, decision source tracking, and win rate charting
 `Python` `NumPy` `Pygame`
 
 ---
