@@ -38,6 +38,7 @@ Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**40
 - **Q-table** encodes local board state as a 5×5 observation window (25-element tuple), learns `reveal` vs `flag` values via Bellman update - intervenes in ~5% of genuinely ambiguous cases
 - **1.83M Q-states** learned over 1.17M training steps; tabular approach made feasible by frontier-only evaluation and local state representation
 - **Custom environment + training loop** (no Gym), real-time pygame debug UI with Q-value inspection, decision source tracking, and win rate charting
+
 `Python` `NumPy` `Pygame`
 
 ---
