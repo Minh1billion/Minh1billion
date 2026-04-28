@@ -32,7 +32,7 @@ Upload CSV / Excel / JSON / Parquet -> automated statistical profiling + LLM-pow
  
 Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**40% all-time win rate** (~55% rolling) on a 10×10 board with 15 mines after 50,000 training episodes.
  
-- **4-layer decision hierarchy**: constraint solver → probability filter → Q-policy → random fallback - each layer only activates when the previous cannot produce a certain decision
+- **4-layer decision hierarchy**: constraint solver -> probability filter -> Q-policy -> random fallback - each layer only activates when the previous cannot produce a certain decision
 - **Constraint solver** handles ~87% of all moves deterministically: flags cells where hidden neighbor count equals remaining mine count, reveals cells where mine count is fully satisfied
 - **Probability filter** estimates `P(mine | cell)` from surrounding number cells, acting when confidence exceeds 80% (flag) or drops below 20% (reveal) - covers ~7% of decisions
 - **Q-table** encodes local board state as a 5×5 observation window (25-element tuple), learns `reveal` vs `flag` values via Bellman update - intervenes in ~5% of genuinely ambiguous cases
@@ -53,6 +53,25 @@ End-to-end pipeline that crawls, embeds, clusters, and summarises Vietnamese tec
 - **React 18 dashboard**: executive summary, trending keywords, topic distribution, daily volume charts, PDF export
 
 `Python` `FastAPI` `React` `Qdrant` `PostgreSQL` `scikit-learn` `Docker`
+
+---
+
+### [DataPill](https://github.com/Minh1billion/datapill) - Modular Data Pipeline CLI
+
+End-to-end CLI for reproducible data pipelines: **ingest -> profile -> classify -> preprocess -> export**, with artifact tracking per run.
+
+- Multi-source ingestion: local files, PostgreSQL, MySQL, S3, Kafka, REST APIs (stream + batch)
+- Dataset profiling: missing values, distributions, percentiles, skew/kurtosis, correlations (Pearson/Spearman), pattern detection (email, URL, UUID, datetime)
+- Semantic column classification: rule-based + embedding-based hybrid (sentence-transformers) with confidence-based routing
+- Config-driven preprocessing pipeline: JSON steps (imputation, scaling, encoding, outlier clipping, feature engineering) with dry-run + checkpoint support
+- Artifact system: every run produces versioned Parquet + JSON metadata, tracked via run_id
+- Sandbox execution: custom Python transformations via RestrictedPython or Docker isolation
+- CLI interface: Typer-based `dp` command with async execution + progress streaming
+
+`Python` `Polars` `PyArrow` `Typer` `Docker`
+
+**PyPI:** https://pypi.org/project/datapill \
+**Docs:** https://minh1billion.github.io/datapill
 
 ---
 
