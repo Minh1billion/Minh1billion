@@ -47,7 +47,7 @@ Hybrid AI agent combining **constraint reasoning + Q-learning**, achieving ~**40
 
 End-to-end pipeline that crawls, embeds, clusters, and summarises Vietnamese tech news into a weekly intelligence report.
 
-- Crawls **4 sources** (VNExpress, ThanhNien, TuoiTre, ZingNews) via HTML scraping + RSS - **100+ articles per run** into PostgreSQL
+- Crawls **11 sources** (VNExpress, ThanhNien, TuoiTre, ZingNews, CafeBiz, VietnamNet, DanTri, Soha, VietnamPlus, Tinhte, TraiNghiemSo) via HTML scraping + RSS — **200–300 articles per run** into PostgreSQL
 - **Vietnamese SBERT embeddings** (`keepitreal/vietnamese-sbert`) + Qdrant vector store for semantic deduplication and relevance scoring
 - **K-means clustering** with silhouette-score auto-tuning + TF-IDF / semantic keyword extraction -> structured weekly JSON report
 - **React 18 dashboard**: executive summary, trending keywords, topic distribution, daily volume charts, PDF export
